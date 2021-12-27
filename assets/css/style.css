@@ -1,0 +1,271 @@
+@import "./reset.css";
+
+.form-search {
+    padding: 50px 0;
+}
+
+.form-container {
+    max-width: 960px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: ShowForm .5s forwards;
+}
+
+.form-wrap {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-wrap > div {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.form-wrap > label {
+    padding: 12px;
+    font-family: 'Poppins';
+    font-size: 22px;
+
+    font-weight: 400;
+    color: #222;
+}
+
+.form-wrap input {
+    padding: 12px;
+    width: 40%;
+
+    border-radius: 2px;
+    border: 1px solid #f2f2f2;
+    outline: 0;
+
+    font-family: 'Poppins';
+    font-size: 18px;
+
+    font-weight: 400;
+} 
+
+.form-wrap button {
+    padding: 12px;
+    width: 20%;
+
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    background-color: #3C3CD1;
+    outline: 0;
+
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+
+    transition: .2s ease-out;
+} 
+
+.form-wrap button:hover {
+    transition: .2s ease-in;
+    background-color: #4C2CD2;
+}
+
+.profile {
+    padding: 50px 0;
+}
+
+.profile-container {
+    max-width: 960px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: wrap;    
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    animation: Show .5s forwards;
+}
+
+.profile-container p {
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 300;
+    color: #c2c2c2;
+
+    margin: 8px 0;
+}
+
+.profile-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.profile-wrap img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    margin-right: 26px;
+}
+
+.profile-wrap > div {
+    display: flex;
+    flex-wrap: wrap;
+
+    flex-direction: column;
+}   
+
+.profile-wrap > div button:nth-child(1){
+    padding: 12px;
+    margin-bottom: 12px;
+
+    width: 260px;
+    border: 1px solid #f2f2f2;
+    outline: 0;
+
+    cursor: pointer;
+
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-weight: 500;
+
+    color: #3C3CD1;
+    background-color: #ffffff;
+    border-radius: 150px;
+
+    transition: .2s ease-out;
+}
+
+.profile-wrap > div button:nth-child(1):hover {
+    transition: .2s ease-in;
+    color: #3C2CD2;
+    background-color: #f9f9f9;
+}
+
+.profile-wrap > div a:nth-child(2){
+    display: block;
+    padding: 12px;
+    margin-bottom: 12px;
+
+    width: 240px;
+    border: 1px solid #f2f2f2;
+
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-weight: 500;
+
+    color: #ffffff;
+    background-color: #3C3CD1;
+    border-radius: 150px;
+
+    transition: .2s ease-out;
+    cursor: pointer;
+
+    text-align: center;
+}
+
+.profile-wrap > div a:nth-child(2):hover {
+    transition: .2s ease-in;
+    background-color: #3C2CD2;
+}
+
+.about {
+    margin-top: 50px;
+}
+
+.about > span {
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 300;
+    color: #c2c2c2;
+}
+
+.profile-title {
+  margin: 12px 0; 
+}
+
+.profile-title h1 {
+    font-family: 'Poppins';
+    font-size: 32px;
+    font-weight: 500;
+
+    color: #222222;
+    line-height: 1.3em;
+
+    margin: 0;
+    padding: 0;
+}
+
+.profile-title p {
+    margin-top: 4px;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 300;
+
+    color: #c2c2c2;
+    line-height: 1.3em;
+
+    margin: 0;
+    padding: 0;
+}
+
+.profile-info {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.profile-info p{
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 500;
+
+    color: #333;
+    line-height: 1.3em;
+
+    margin: 0;
+    padding: 0;
+}
+
+.profile-info img {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+}
+
+@keyframes Show {
+    from {
+        transform: translate3d(0,0,0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(10px,0,0);
+        opacity: 1;
+    }
+}
+
+@keyframes ShowForm {
+    from {
+        transform: translate3d(0,0,0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0,10px,0);
+        opacity: 1;
+    }
+}

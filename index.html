@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/vue.js"></script>
+    <title>Github</title>
+</head>
+<body>
+    <div id="app">
+        <template>
+            <form v-if="!data" class="form-search" @submit="handleSubmit">
+                <div class="form-container">
+                   <div class="form-wrap">
+                        <label>Procure seu perfil</label>
+                        <div>
+                            <input type="text" v-model="userName" placeholder="Digite aqui">
+                            <button>Buscar</button>
+                        </div>
+                   </div>
+                </div>
+            </form>
+            <section v-else class="profile">
+                <div class="profile-container">
+                    <p>Perfil Público</p>
+
+                    <div class="profile-wrap">
+                        <img :src="data.avatar_url" alt="data.login" />
+                        <div>
+                            <button @click="data = undefined">Trocar</button>
+                            <a :href="data.html_url">Conhecer</a>
+                        </div>
+                    </div>
+                    
+                    <div class="about">
+                        <span>Sobre</span>
+                        <div class="profile-title">
+                            <h1>{{data.login}}</h1>
+                            <p>{{data.name}}</p>
+                        </div>
+                        
+                        <div class="profile-info">
+                            <p>{{data.bio}}</p>
+                        </div>
+                        <div v-show="data.location" class="profile-info">
+                            <img src="./assets/img/Icon material-location-on.png" />
+                            <p>{{data.location}}</p>
+                        </div>
+                        <div v-show="data.public_repos" class="profile-info">
+                            <img src="./assets/img/Icon awesome-code.png" />
+                            <p>{{data.public_repos}} Repositórios Públicos</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <span>{{loading ? "Carregando" : null}}</span>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+               userName: "",
+               loading: false,
+               data: undefined, 
+            },
+            methods: {
+                async handleSubmit(e){
+                    e.preventDefault();
+
+                    if(this.userName.trim() === ""){
+                        alert("Preencha os campos corretamente!");
+                        return;
+                    }
+
+                    this.loading = true;
+                    const res = await (await fetch(`https://api.github.com/users/${this.userName}`)).json();
+                    
+                    if(res.message === "Not Found"){
+                        this.loading = false;
+                        alert("user not found")
+                        return;
+                    }
+
+                    this.userName = "";
+                    this.data = res;
+                    this.loading = false;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
